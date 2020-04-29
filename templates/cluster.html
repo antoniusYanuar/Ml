@@ -44,8 +44,8 @@
 </style>
 {% endblock %} {% block body %}
 <div class="topnav">
-  <a class="active">Neural Network</a>
-  <a>Clustering</a>
+  <a href="{{ url_for('index') }}">Neural Network</a>
+  <a class="active" href="{{ url_for('cluster') }}">Clustering</a>
 </div>
 <form id="form" action="#" method="post">
   <label for="myfile">Select a dataset</label>
@@ -54,7 +54,7 @@
 </form>
 <form id="form" action="#" method="post">
 	<label for="myfile">Cluster</label>
-	<input id='text' type="text" id="myfile" name="myfile">
+	<input id='text' type="text" id="k" name="k">
 	<input id='button' type="submit">
   </form>
 <table id="ann">
