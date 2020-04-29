@@ -9,7 +9,20 @@
 />
 {% endblock %} {% block body %}
 <div class="topnav">
-  <a href="home.html">Neural Network</a>
-  <a href="clustering.html">Clustering</a>
+  <a class="active">Neural Network</a>
+  <a>Clustering</a>
 </div>
+<form action="#" method="post">
+  <label for="myfile">Select a dataset:</label>
+  <input type="file" id="myfile" name="myfile"><br><br>
+  <input type="submit">
+</form>
+
+<table>
+<tbody>
+<tr><td>Mean Squared Error</td><td>Root Mean Squared Error</td><td>Mean Absolute Error</td><td>R2 Score</td></tr>
+<td>{{ mse_dis }}</td><td>{{ rmse_dis }}</td><td>{{ mae_dis }}</td><td>{{ r2_dis }}</td></tr>
+</tbody>
+</table>
+
 {% endblock %}
