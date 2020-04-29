@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% block head %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/index.css') }}"
+/>
+<link
+  href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+{% endblock %} {% block body %}
+<div class="topnav">
+  <a href="home.html">Neural Network</a>
+  <a href="clustering.html">Clustering</a>
+</div>
+{% endblock %}
