@@ -1,0 +1,91 @@
+{% extends 'base.html' %} {% block head %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/index.css') }}"
+/>
+<link
+  href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+<style>
+	#ann {
+	  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	  border-collapse: collapse;
+	  width: 100%;
+	}
+
+	#ann td, #ann th {
+	  border: 1px solid #ddd;
+	  padding: 8px;
+	}
+
+	#ann tr:nth-child(even){background-color: #f2f2f2;}
+
+	#ann tr:hover {background-color: #ddd;}
+	#form {
+		border:1px solid #4CAF50
+	}
+
+	#button {
+		border:1px solid #4CAF50;
+		margin:10px;
+		margin-left:10px;
+	}
+
+	#file {
+		margin:10px;
+		border:1px solid #4CAF50;
+		margin-left:10px;
+	}
+	#text {
+		border:1px solid #4CAF50;
+		margin-left:20px;
+	}
+</style>
+{% endblock %} {% block body %}
+<div class="topnav">
+  <a class="active">Neural Network</a>
+  <a>Clustering</a>
+</div>
+<form id="form" action="#" method="post">
+  <label for="myfile">Select a dataset</label>
+  <input id='file' type="file" id="myfile" name="myfile">
+  <input id='button' type="submit">
+</form>
+<form id="form" action="#" method="post">
+	<label for="myfile">Cluster</label>
+	<input id='text' type="text" id="myfile" name="myfile">
+	<input id='button' type="submit">
+  </form>
+<table id="ann">
+<tbody>
+	<tr>
+		<td>Mean Squared Error</td>
+		<td>Root Mean Squared Error</td>
+		<td>Mean Absolute Error</td>
+		<td>R2 Score</td>
+	</tr>
+	<tr>
+		<td>{{ mse_dis }}</td>
+		<td>{{ rmse_dis }}</td>
+		<td>{{ mae_dis }}</td>
+		<td>{{ r2_dis }}</td>
+	</tr>
+</tbody>
+</table>
+<br>
+<table id="ann">
+	<tbody>
+		<tr>
+			<td>Longitude</td>
+			<td>Latitude</td>
+			<td>SO2</td>
+		</tr>
+		<tr>
+			<td>{{ mse_dis }}</td>
+			<td>{{ rmse_dis }}</td>
+			<td>{{ mae_dis }}</td>
+		</tr>
+	</tbody>
+	</table>
+{% endblock %}
