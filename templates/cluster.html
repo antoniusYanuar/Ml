@@ -48,44 +48,23 @@
   <a class="active" href="{{ url_for('cluster') }}">Clustering</a>
 </div>
 <form id="form" action="#" method="post">
-  <label for="myfile">Select a dataset</label>
-  <input id='file' type="file" id="myfile" name="myfile">
-  <input id='button' type="submit">
-</form>
-<form id="form" action="#" method="post">
+  	<label for="myfile">Select a dataset</label>
+	<input id='file' type="file" id="myfile" name="myfile">
 	<label for="myfile">Cluster</label>
 	<input id='text' type="text" id="k" name="k">
 	<input id='button' type="submit">
-  </form>
+</form>
+<form>
+	<select name= colours method="GET" action="/">
+    	{% for colour in colours %}
+    		<option value= "{{colour}}" SELECTED>{{colour}}</option>"
+    	{% endfor %}
+</select>
+</form>
 <table id="ann">
-<tbody>
-	<tr>
-		<td>Mean Squared Error</td>
-		<td>Root Mean Squared Error</td>
-		<td>Mean Absolute Error</td>
-		<td>R2 Score</td>
-	</tr>
-	<tr>
-		<td>{{ mse_dis }}</td>
-		<td>{{ rmse_dis }}</td>
-		<td>{{ mae_dis }}</td>
-		<td>{{ r2_dis }}</td>
-	</tr>
-</tbody>
+	{% for table in tables %}
+            {{titles[loop.index]}}
+            {{ table|safe }}
+	{% endfor %}
 </table>
-<br>
-<table id="ann">
-	<tbody>
-		<tr>
-			<td>Longitude</td>
-			<td>Latitude</td>
-			<td>SO2</td>
-		</tr>
-		<tr>
-			<td>{{ mse_dis }}</td>
-			<td>{{ rmse_dis }}</td>
-			<td>{{ mae_dis }}</td>
-		</tr>
-	</tbody>
-	</table>
 {% endblock %}
